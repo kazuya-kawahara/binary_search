@@ -9,11 +9,10 @@ int p(int m){
     int s;
     s = 0;
     for(i = 0; i < n; i++){
-        s = s + A[i]/m
+        s = s + A[i]/m;
     }
-    return s>=k
+    return s >= k;
 }
-
 
 int main(){
   int i, lb, ub;
