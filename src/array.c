@@ -15,7 +15,7 @@ int main(){
   ub = n ;
   while( ub-lb > 1 ) {
       int m = ( lb + ub ) / 2 ;
-      if (A[m]>=k) {
+      if (A[m]>=k) {  //pは省略、ここで条件を記した
           ub = m ;
       }
       else {

@@ -9,9 +9,9 @@ int p(int m){
     int s;
     s = 0;
     for(i = 0; i < n; i++){
-        s = s + A[i]/m;
+        s = s + A[i]/m;  //ここのforで(A[i]/m)(切り捨て)の総和を計算
     }
-    return s >= k;
+    return s >= k;  //できた長さmの槍の本数がkを超えたかチェック
 }
 
 int main(){
@@ -21,8 +21,8 @@ int main(){
     scanf("%d", &A[i]);
   }
   
-  lb = 0;
-  ub = 1000000000/(k/n);
+  lb = 0;  //pの定義内に除算が含まれるが、lb=0は呼び出されず0除算は実際には実行されないのでおk
+    ub = 1000000000;
   while(ub-lb > 1){
       int m = (ub + lb) / 2;
       if(p(m)){
