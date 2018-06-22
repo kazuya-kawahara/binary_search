@@ -3,25 +3,23 @@
 int n;
 int k;
 int A[100000];
-int i;
 
 int p(int m){
-    int j;
-    int sum;
-    i = 1;
+    int i, j, sum;
+    i = 0;
     j = 0;
-    while(i < n){
+    while((A[i] <= m)&&(i < n)){
         sum = 0;
-        i = i - 1;
-        while(sum <= m){
-            while(A[i] > 0){
-                sum = sum + A[i];
-                i = i + 1;
-            }
-        }
-        j = j + 1;
+        while((sum + A[i] <= m)&&(i < n)){
+            sum = sum + A[i];
+            i = i + 1;
+        }　　//ここのwhileで仕事量の和がmを超えないように順にグループ分けする
+        j = j + 1;　　//グループの数をカウントする
     }
-    return j <= k;
+    if(A[i] > m){
+        j = k + 1;
+    }
+    return j <= k;　　//グループの数が人数を超えていないかチェック
 }
 
 int main(){
